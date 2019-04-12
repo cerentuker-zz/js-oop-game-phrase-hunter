@@ -1,6 +1,6 @@
 # js-oop-game-phrase-hunter
 # Ceren Tuker, 2019
-################################################
+
 A browser-based, word guessing game: "Phrase Hunter." (a.k.a. hangman) 
 The user tries to guess a hidden phrase by clicking letters on an onscreen keyboard.
 
