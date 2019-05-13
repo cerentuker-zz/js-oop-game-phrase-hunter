@@ -27,7 +27,19 @@ class Game {
         // display the phrase on the page
         var phrase = this.getRandomPhrase();
         this.activePhrase = phrase;
+        //remove previous phrases if there are any
+        $('li.hide.letter').remove();
+        //restore lives if there are none
+        refreshLives();
         phrase.addPhraseToDisplay();
+    }
+    //function that restores lives 
+    refreshLives() {
+        $('div ol').first().html(`<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>
+        <li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>
+        <li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>
+        <li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>
+        <li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>`);
     }
     //gets a random phrase
     getRandomPhrase() {
@@ -36,18 +48,27 @@ class Game {
     }
     //game interface to handle user's interactions
     handleInteraction() {
-
-    }
-    //removes one life from user
-    removelife() {
-
+        //when a letter is clicked, check if it matches anything in the phrase
+}
+    //removes one life from user, returns the remaining life count
+    removeLife() {
+        $('.tries').first().remove();
+        return $('.tries').length;
     }
     //checks if the player has won
     checkForWin() {
+        console.log("CHECK FOR WIN!!");
+        if ($('.hide').length == 0) {
+            console.log("YOU WON!");
+        } else {
+            console.log("NOCH NICHT!");
+        }
 
     }
     // ends game
     gameOver() {
-
+        console.log("GAME OVER!");
+        $(".title").text("Game Over! Better luck next time!");
+        $('#overlay').show();
     }
 }
