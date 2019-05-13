@@ -30,7 +30,7 @@ class Game {
         //remove previous phrases if there are any
         $('li.hide.letter').remove();
         //restore lives if there are none
-        refreshLives();
+        this.refreshLives();
         phrase.addPhraseToDisplay();
     }
     //function that restores lives 
